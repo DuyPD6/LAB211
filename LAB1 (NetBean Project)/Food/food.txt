@@ -1,0 +1,5 @@
+2,cai chua,5.2,rau cu chua,4,2025-02-20
+6,gio heo,1.2,thit,1,2022-09-09
+5,thit ga,5.3,thit,1,2022-03-01
+1,ca chua,5.2,trai cay,3,2021-10-20
+3,ca ngu,6.0,hai san,1,2021-10-02

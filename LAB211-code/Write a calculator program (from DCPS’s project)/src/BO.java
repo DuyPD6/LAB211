@@ -8,5 +8,10 @@ public class BO {
             return null;
         }
         int [][]result = new int[row1][collum1];
+        for (int i = 0; i < row1; i++) {
+            for (int j = 0; j < collum1; j++) {
+                
+            }
+        }
     }
 }
