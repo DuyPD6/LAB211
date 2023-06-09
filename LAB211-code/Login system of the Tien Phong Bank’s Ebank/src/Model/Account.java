@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.Objects;
-
 public class Account {
     private String accountNumber;
     private String password;
