@@ -1,5 +1,0 @@
-6,gio heo,1.2,thit,1,2022-09-09
-5,thit ga,5.3,thit,1,2022-03-01
-3,ca ngu,6.0,hai san,1,2021-10-02
-F1,rau muong,5.3,rau cu,3,2021-10-01
-F2,rau ngo,0.3,rau cu,4,2021-10-01
