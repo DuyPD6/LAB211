@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -11,13 +12,13 @@ import Model.ListAccountDatabase;
 public class Login {
     private ResourceBundle resourceBundle;
     private ListAccountDatabase listAccount = new ListAccountDatabase();
-    private ArrayList<Account> accountList = listAccount.database();
+    private List<Account> accountList = listAccount.getAccounts();
 
     public void login(Locale locale) {
         Ebank ebank = new Ebank();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        resourceBundle = ResourceBundle.getBundle("Languages/language_" + locale, locale);
+        resourceBundle = ResourceBundle.getBundle("Languages/language", locale);
         String accountNumber = "";
         String password = "";
         String captcha = "";

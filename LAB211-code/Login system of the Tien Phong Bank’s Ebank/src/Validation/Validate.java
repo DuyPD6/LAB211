@@ -3,13 +3,11 @@ package Validation;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
+import java.util.regex.Pattern;
 
 import Model.Account;
 import Model.ListAccountDatabase;
-
-import java.text.SimpleDateFormat;
 
 public class Validate {
     private BufferedReader br;
@@ -25,13 +23,13 @@ public class Validate {
             System.out.println(message);
             try {
                 input = br.readLine();
-                if (!input.matches(regex)) {
+                if (!Pattern.matches(regex, input)) {
                     System.out.println("Invalid input! Please try again");
                     continue;
                 } else {
                     return input;
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 System.out.println(e);
             }
         } while (true);
@@ -47,7 +45,7 @@ public class Validate {
             } catch (IOException e) {
                 System.out.println(err);
             }
-            if (accountNumber.matches(regex)) {
+            if (Pattern.matches(regex, accountNumber)) {
                 break;
             } else {
                 System.out.println(err);
@@ -66,7 +64,7 @@ public class Validate {
             } catch (IOException e) {
                 System.out.println(err);
             }
-            if (accountPassword.matches(regex)) {
+            if (Pattern.matches(regex, accountPassword)) {
                 break;
             } else {
                 System.out.println(err);
@@ -83,7 +81,7 @@ public class Validate {
             if (captcha.trim().isEmpty()) {
                 System.out.println(err);
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println(err);
         }
         return captcha;
@@ -91,7 +89,7 @@ public class Validate {
 
     public boolean checkAccount(String accountNumber) {
         ListAccountDatabase listAccountFixed = new ListAccountDatabase();
-        ArrayList<Account> accountList = listAccountFixed.database();
+        List<Account> accountList = listAccountFixed.getAccounts();
         if (accountList.isEmpty()) {
             return false;
         } else {
@@ -106,7 +104,7 @@ public class Validate {
 
     public boolean checkPassword(String accountPassword) {
         ListAccountDatabase listAccountFixed = new ListAccountDatabase();
-        ArrayList<Account> accountList = listAccountFixed.database();
+        List<Account> accountList = listAccountFixed.getAccounts();
         if (accountList.isEmpty()) {
             return false;
         } else {

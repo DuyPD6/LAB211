@@ -15,12 +15,12 @@ public class Menu {
             String choice = validate.getChoice("Please choice one option: ", 1, 3);
             switch (choice) {
                 case "1":
-                    ebank.setLocale(Locale.forLanguageTag("vi"));
-                    login.login(Locale.forLanguageTag("vi"));
+                    ebank.setLocale(new Locale("vi", "VN"));
+                    login.login(new Locale("vi", "VN"));
                     break;
                 case "2":
-                    ebank.setLocale(Locale.forLanguageTag("en"));
-                    login.login(Locale.forLanguageTag("en"));
+                    ebank.setLocale(Locale.ENGLISH);
+                    login.login(Locale.ENGLISH);
                     break;
                 case "3":
                     System.exit(0);
@@ -32,3 +32,8 @@ public class Menu {
         } while (true);
     }
 }
+
+
+
+
+
