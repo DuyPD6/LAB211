@@ -35,7 +35,7 @@ public class View_Expense {
         String content = validate.getContent("Enter Content: ");
         checkIfExpenseExisted = expenseBO.checkExist(date, amount, content);
         Expense expense = new Expense(id, date, amount, content);
-        if (!checkIfExpenseExisted) {
+        if (checkIfExpenseExisted) {
             String confirm = validate.checkYesNo("This content already exists. Enter 'Y' to add this content or 'N' to cancel",
                     "Please only input Y or N!").trim();
             if (confirm.equalsIgnoreCase("y")) {

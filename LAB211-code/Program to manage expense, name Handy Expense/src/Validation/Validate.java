@@ -90,7 +90,7 @@ public class Validate {
                 }
                 break;
             } catch (Exception e) {
-                System.out.println("Please input a real day format: day/month/year");
+                System.out.println("Please input a real day format: day-month-year");
             }
         }
         return date;

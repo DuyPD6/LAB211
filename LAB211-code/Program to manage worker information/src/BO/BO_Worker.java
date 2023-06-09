@@ -66,7 +66,7 @@ public class BO_Worker {
             }
             if (flag.trim().equalsIgnoreCase("0")) {
                 if (salaryUpdate > salaryCurrent) {
-                    return "Down salary cannot be higher than " + salaryCurrent;
+                    return "Down salary cannot be higher than " + (salaryCurrent-1);
                 } else {
                     worker.setSalary(salaryCurrent - salaryUpdate);
                     return "Add Successfully";

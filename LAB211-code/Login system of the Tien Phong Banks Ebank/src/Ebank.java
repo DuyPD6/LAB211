@@ -6,7 +6,7 @@ public class Ebank {
     private static ResourceBundle resources;
 
     public void setLocale(Locale locale) {
-        resources = ResourceBundle.getBundle("Languages/language_" + locale, locale);
+        resources = ResourceBundle.getBundle("Languages/language_" + locale.getLanguage(), locale);
     }
 
     public String checkAccountNumber(String accountNumber) {
