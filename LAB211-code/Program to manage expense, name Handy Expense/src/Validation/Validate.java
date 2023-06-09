@@ -3,9 +3,8 @@ package Validation;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.util.regex.Pattern;
+import java.util.Date;
 
 public class Validate {
     private BufferedReader br;
@@ -109,5 +108,4 @@ public class Validate {
         } while (content.trim().equals(""));
         return content;
     }
-
 }

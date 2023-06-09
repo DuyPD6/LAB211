@@ -1,7 +1,7 @@
 package View;
 
-import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import BO.BO_Expense;
@@ -9,8 +9,13 @@ import Model.Expense;
 import Validation.Validate;
 
 public class View_Expense {
-    private BO_Expense expenseBO = new BO_Expense();
-    private Validate validate = new Validate();
+    private BO_Expense expenseBO;
+    private Validate validate;
+
+    public View_Expense() {
+        expenseBO = new BO_Expense();
+        validate = new Validate();
+    }
 
     public void addExpense() {
         System.out.println("-----------------------Add an expense-----------------------");
@@ -26,24 +31,24 @@ public class View_Expense {
         String date = sdf.format(dateInput);
 
         double amount = Double.parseDouble(
-                validate.getDouble("Enter Amount: ", "Please enter an positive number!", 0, Double.MAX_VALUE));
+                validate.getDouble("Enter Amount: ", "Please enter a positive number!", 0, Double.MAX_VALUE));
         String content = validate.getContent("Enter Content: ");
         checkIfExpenseExisted = expenseBO.checkExist(date, amount, content);
         Expense expense = new Expense(id, date, amount, content);
-        if (!checkIfExpenseExisted == false) {
-            String confirm = validate.checkYesNo("This content is existed. Y to add this content or N to cancel",
+        if (!checkIfExpenseExisted) {
+            String confirm = validate.checkYesNo("This content already exists. Enter 'Y' to add this content or 'N' to cancel",
                     "Please only input Y or N!").trim();
             if (confirm.equalsIgnoreCase("y")) {
                 expenseBO.addExpense(expense);
-                System.out.println("Add successfully");
+                System.out.println("Add successful");
             } else if (confirm.equalsIgnoreCase("n")) {
-                System.out.println("Cancel successfully");
+                System.out.println("Cancel successful");
             } else {
                 System.out.println("Input is not valid!");
             }
         } else {
             expenseBO.addExpense(expense);
-            System.out.println("Add successfully");
+            System.out.println("Add successful");
         }
     }
 
@@ -72,13 +77,13 @@ public class View_Expense {
         } else {
             System.out.println("-----------------------Delete an expense-----------------------");
             int deleteID = Integer
-                    .parseInt(validate.getDouble("Enter ID", "Must be positive value!", 0, Double.MAX_VALUE));
+                    .parseInt(validate.getDouble("Enter ID", "Must be a positive value!", 0, Double.MAX_VALUE));
             isIDExisted = expenseBO.deleteExpense(deleteID);
         }
-        if (isIDExisted == false) {
-            System.out.println("Expense is not existed!");
+        if (!isIDExisted) {
+            System.out.println("Expense does not exist!");
         } else {
-            System.out.println("Expense is deleted");
+            System.out.println("Expense deleted");
         }
     }
 }

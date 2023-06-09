@@ -1,16 +1,15 @@
 package BO;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import Model.Expense;
 
 public class BO_Expense {
-    private List<Expense> listExpenses = null;
+    private List<Expense> listExpenses;
 
     public BO_Expense() {
-        listExpenses = new ArrayList<Expense>();
+        listExpenses = new ArrayList<>();
     }
 
     public void addExpense(Expense expense) {
@@ -34,18 +33,17 @@ public class BO_Expense {
         return false;
     }
 
-    public boolean checkExist(String date, Double amoount, String content) {
+    public boolean checkExist(String date, Double amount, String content) {
         if (listExpenses.isEmpty()) {
             return false;
         }
         for (Expense expense : listExpenses) {
-            if (expense.getNumber() == amoount
+            if (expense.getNumber() == amount
                     || expense.getDate().equals(date.trim())
-                    || (expense.getContent()).equalsIgnoreCase(content.trim())) {
+                    || expense.getContent().equalsIgnoreCase(content.trim())) {
                 return true;
             }
         }
         return false;
     }
-
 }

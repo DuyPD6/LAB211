@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.Objects;
-
 public class Expense {
     private int ID;
     private String date;
